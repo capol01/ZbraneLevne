@@ -17,26 +17,40 @@
 
   <main>
 
-    <section class="login-box">
+    <!-- LOGIN -->
+    <section class="login-box" id="login-box">
       <h2>Přihlášení admina</h2>
 
-      <input type="text" placeholder="Email" id="email">
-      <input type="password" placeholder="Heslo" id="password">
+      <input type="text" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Heslo">
 
       <button onclick="login()">Přihlásit se</button>
 
       <p id="status"></p>
     </section>
 
+    <!-- ADMIN PANEL -->
     <section class="admin-panel hidden" id="admin-panel">
       <h2>Správa produktů</h2>
 
-      <input type="text" placeholder="Název produktu">
-      <input type="number" placeholder="Cena">
-      <input type="number" placeholder="Sklad">
-      <input type="text" placeholder="URL fotky">
+      <input type="text" id="name" placeholder="Název produktu">
+      <input type="number" id="price" placeholder="Cena">
+      <input type="number" id="stock" placeholder="Sklad">
 
-      <button>Přidat produkt</button>
+      <!-- KATEGORIE -->
+      <select id="category">
+        <option value="Airsoft">Airsoft</option>
+        <option value="Optika">Optika</option>
+        <option value="Oblečení">Oblečení</option>
+        <option value="Outdoor">Outdoor</option>
+        <option value="Vojenské vybavení">Vojenské vybavení</option>
+      </select>
+
+      <input type="text" id="image" placeholder="URL fotky">
+
+      <button onclick="addProduct()">➕ Přidat produkt</button>
+
+      <hr>
 
       <div id="admin-products"></div>
     </section>
