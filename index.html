@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZbraneLevne - Airsoft</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
   <header class="header">
     <h1>🔫 ZbraneLevne</h1>
+
     <nav>
       <a href="index.html">Domů</a>
       <a href="#">Airsoft</a>
-      <a href="#">Outdoor</a>
-      <a href="#">Oblečení</a>
       <a href="#">Optika</a>
-      <a href="#">Kontakt</a>
-      <a href="admin.html" class="admin-btn">Admin</a>
+      <a href="#">Oblečení</a>
+      <a href="#">Outdoor</a>
+      <a href="admin.html">Admin</a>
     </nav>
   </header>
 
   <main>
+
     <section class="hero">
-      <h2>Airsoft vybavení</h2>
-      <p>Levné vybavení pro airsoft hráče</p>
+      <h2>Airsoft vybavení za nejlepší ceny</h2>
+      <p>Spravováno přes Supabase admin panel</p>
     </section>
 
     <section class="products">
-      <h3>Produkty</h3>
+      <h2>Produkty</h2>
+
       <div id="product-list">
-        <!-- produkty se načtou později ze Supabase -->
-        <p class="empty">Zatím žádné produkty...</p>
+        <p>Načítání produktů...</p>
       </div>
+
     </section>
+
   </main>
 
   <footer>
-    <p>© ZbraneLevne - Airsoft shop</p>
+    <p>© ZbraneLevne</p>
   </footer>
 
-  <script src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
+
 </body>
 </html>
