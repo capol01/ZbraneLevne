@@ -30,3 +30,28 @@ function showAdmin() {
   document.getElementById("status").innerText = "✅ Přihlášeno";
   document.getElementById("admin-panel").classList.remove("hidden");
 }
+
+window.addProduct = async function () {
+  const name = document.getElementById("name").value;
+  const price = document.getElementById("price").value;
+  const stock = document.getElementById("stock").value;
+  const category = document.getElementById("category").value;
+  const image = document.getElementById("image").value;
+
+  const { error } = await supabase.from("products").insert([
+    {
+      name,
+      price,
+      stock,
+      category,
+      image_url: image,
+      visible: true,
+    },
+  ]);
+
+  if (error) {
+    alert("❌ chyba: " + error.message);
+  } else {
+    alert("✅ produkt přidán!");
+  }
+};
