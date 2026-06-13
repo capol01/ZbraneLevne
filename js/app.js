@@ -9,7 +9,7 @@ async function loadProducts() {
     .eq("visible", true);
 
   if (error) {
-    container.innerHTML = "❌ chyba načítání produktů";
+    container.innerHTML = "❌ Chyba načítání produktů";
     return;
   }
 
@@ -17,13 +17,21 @@ async function loadProducts() {
 
   data.forEach((product) => {
     container.innerHTML += `
-      <div class="product">
-        <img src="${product.image_url}" alt="" style="width:100%; border-radius:10px;">
-        <h3>${product.name}</h3>
-        <p>💰 ${product.price} Kč</p>
-        <p>📦 Skladem: ${product.stock} ks</p>
-        <p>🏷 Kategorie: ${product.category}</p>
-      </div>
+      <a href="product.html?id=${product.id}" class="product-link">
+
+        <div class="product">
+          <img src="${product.image_url}" alt="${product.name}">
+
+          <h3>${product.name}</h3>
+
+          <p>💰 ${product.price} Kč</p>
+
+          <p>📦 Skladem: ${product.stock} ks</p>
+
+          <p>🏷 Kategorie: ${product.category}</p>
+        </div>
+
+      </a>
     `;
   });
 }
