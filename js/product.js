@@ -85,6 +85,21 @@ async function loadProduct() {
     document.getElementById("main-image").src =
       images[currentImage];
   };
+  document.getElementById("add-cart").onclick = () => {
+
+  const cart = JSON.parse(
+    localStorage.getItem("cart")
+  ) || [];
+
+  cart.push(data);
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+
+  alert("✅ Produkt přidán do košíku");
+};
 }
 
 loadProduct();
