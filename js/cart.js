@@ -70,3 +70,56 @@ window.removeFromCart = function(index) {
 };
 
 loadCart();
+import { supabase } from "./supabase.js";
+
+window.createOrder = async function() {
+
+  const cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (cart.length === 0) {
+    alert("Košík je prázdný");
+    return;
+  }
+
+  const name =
+    document.getElementById("customer-name").value;
+
+  const email =
+    document.getElementById("customer-email").value;
+
+  const phone =
+    document.getElementById("customer-phone").value;
+
+  const address =
+    document.getElementById("customer-address").value;
+
+  let total = 0;
+
+  cart.forEach(item => {
+    total += Number(item.price);
+  });
+
+  const { error } = await supabase
+    .from("orders")
+    .insert([
+      {
+        name,
+        email,
+        phone,
+        address,
+        total
+      }
+    ]);
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  localStorage.removeItem("cart");
+
+  alert("✅ Objednávka odeslána");
+
+  location.reload();
+};
